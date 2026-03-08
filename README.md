@@ -1,4 +1,4 @@
-# @mixxtor/adonisjs-langchain
+# @ordius/adonisjs-langchain
 
 An AdonisJS v6/v7 provider for [LangChain](https://js.langchain.com/) with multi-LLM driver support, type-safe provider selection, and full autocompletion.
 
@@ -14,7 +14,7 @@ An AdonisJS v6/v7 provider for [LangChain](https://js.langchain.com/) with multi
 ## Installation
 
 ```bash
-npm install @mixxtor/adonisjs-langchain @langchain/core
+npm install @ordius/adonisjs-langchain @langchain/core
 ```
 
 Install the LangChain model packages you need:
@@ -29,13 +29,13 @@ npm install @langchain/anthropic  # Anthropic Claude
 Run the configure command to scaffold the config file and register the provider:
 
 ```bash
-node ace configure @mixxtor/adonisjs-langchain
+node ace configure @ordius/adonisjs-langchain
 ```
 
 This will:
 
 - Create `config/langchain.ts`
-- Register `@mixxtor/adonisjs-langchain/provider` in `adonisrc.ts`
+- Register `@ordius/adonisjs-langchain/provider` in `adonisrc.ts`
 
 ## Config file
 
@@ -44,7 +44,7 @@ Edit `config/langchain.ts` to set up your drivers:
 ```typescript
 // config/langchain.ts
 import env from '#start/env'
-import { defineConfig, drivers, type InferDrivers } from '@mixxtor/adonisjs-langchain'
+import { defineConfig, drivers, type InferDrivers } from '@ordius/adonisjs-langchain'
 import { ChatOpenAI } from '@langchain/openai'
 import { ChatAnthropic } from '@langchain/anthropic'
 
@@ -69,7 +69,7 @@ const langchainConfig = defineConfig({
 export default langchainConfig
 
 // Augment the package's interface so llm.use() knows your driver names
-declare module '@mixxtor/adonisjs-langchain/types' {
+declare module '@ordius/adonisjs-langchain/types' {
   interface LangchainDrivers extends InferDrivers<typeof langchainConfig> {}
 }
 ```
@@ -86,7 +86,7 @@ ANTHROPIC_API_KEY=sk-ant-...
 Import the pre-resolved singleton from the service file:
 
 ```typescript
-import llm from '@mixxtor/adonisjs-langchain/services/main'
+import llm from '@ordius/adonisjs-langchain/services/main'
 ```
 
 ### Default driver

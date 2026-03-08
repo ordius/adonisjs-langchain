@@ -16,14 +16,14 @@ export default class LangchainProvider {
 
       if (!langchainConfigProvider) {
         throw new RuntimeException(
-          'Missing "config/langchain.ts". Run "node ace configure @mixxtor/adonisjs-langchain"'
+          'Missing "config/langchain.ts". Run "node ace configure @ordius/adonisjs-langchain"'
         )
       }
 
       const config = await configProvider.resolve(this.app, langchainConfigProvider)
       if (!config) {
         throw new RuntimeException(
-          'Invalid langchain config. Use "defineConfig" from @mixxtor/adonisjs-langchain'
+          'Invalid langchain config. Use "defineConfig" from @ordius/adonisjs-langchain'
         )
       }
 

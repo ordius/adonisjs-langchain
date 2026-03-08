@@ -1,5 +1,5 @@
 /*
- * @mixxtor/adonisjs-langchain
+ * @ordius/adonisjs-langchain
  *
  * (c) Mixxtor
  *
@@ -16,7 +16,7 @@ import type { LangchainDrivers } from '../src/types/index.js'
  *
  * @example
  * ```ts
- * import llm from '@mixxtor/adonisjs-langchain/services/main'
+ * import llm from '@ordius/adonisjs-langchain/services/main'
  *
  * // Default provider
  * await llm.invoke('Hello')

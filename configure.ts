@@ -31,6 +31,6 @@ export async function configure(command: ConfigureCommand) {
    * Register provider
    */
   await codemods.updateRcFile((rcFile) => {
-    rcFile.addProvider('@mixxtor/adonisjs-langchain/provider')
+    rcFile.addProvider('@ordius/adonisjs-langchain/provider')
   })
 }

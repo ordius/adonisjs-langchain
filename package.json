@@ -1,5 +1,5 @@
 {
-  "name": "@mixxtor/adonisjs-langchain",
+  "name": "@ordius/adonisjs-langchain",
   "version": "0.0.0",
   "description": "AdonisJS provider for LangChain with multi-LLM support",
   "engines": {
@@ -77,13 +77,13 @@
     "@adonisjs/core": "^6.19.0 || ^7.0.0",
     "@langchain/core": "^1.1.31"
   },
-  "homepage": "https://github.com/mixxtor/adonisjs-langchain#readme",
+  "homepage": "https://github.com/ordius/adonisjs-langchain#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mixxtor/adonisjs-langchain.git"
+    "url": "git+https://github.com/ordius/adonisjs-langchain.git"
   },
   "bugs": {
-    "url": "https://github.com/mixxtor/adonisjs-langchain/issues"
+    "url": "https://github.com/ordius/adonisjs-langchain/issues"
   },
   "publishConfig": {
     "access": "public",

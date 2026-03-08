@@ -8,7 +8,7 @@ import type { ChatDriverConfig, ResolvedLangchainConfig } from '../types/index.j
  *
  * @example
  * ```ts
- * import { defineConfig, drivers } from '@mixxtor/adonisjs-langchain'
+ * import { defineConfig, drivers } from '@ordius/adonisjs-langchain'
  * import { ChatOpenAI } from '@langchain/openai'
  *
  * defineConfig({

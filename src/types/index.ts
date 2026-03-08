@@ -33,7 +33,7 @@ export type ResolvedLangchainConfig<
  *
  * @example
  * ```ts
- * declare module '@mixxtor/adonisjs-langchain/types' {
+ * declare module '@ordius/adonisjs-langchain/types' {
  *   interface LangchainDrivers extends InferDrivers<typeof langchainConfig> {}
  * }
  * ```
