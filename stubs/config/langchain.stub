@@ -1,0 +1,23 @@
+{{{
+  exports({ to: app.configPath('langchain.ts') })
+}}}
+import env from '#start/env'
+import { defineConfig, drivers, type InferDrivers } from '@mixxtor/adonisjs-langchain'
+import { ChatOpenAI } from '@langchain/openai'
+
+const langchainConfig = defineConfig({
+  default: 'openai',
+  drivers: {
+    openai: drivers.chat(ChatOpenAI, {
+      apiKey: env.get('OPENAI_API_KEY'),
+      model: 'gpt-4o-mini',
+      temperature: 0.7,
+    }),
+  },
+})
+
+export default langchainConfig
+
+declare module '@mixxtor/adonisjs-langchain/types' {
+  interface LangchainDrivers extends InferDrivers<typeof langchainConfig> {}
+}

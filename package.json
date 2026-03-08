@@ -1,0 +1,122 @@
+{
+  "name": "@mixxtor/adonisjs-langchain",
+  "version": "0.0.0",
+  "description": "AdonisJS provider for LangChain with multi-LLM support",
+  "engines": {
+    "node": ">=20.6.0"
+  },
+  "main": "build/index.js",
+  "type": "module",
+  "files": [
+    "build",
+    "!build/bin",
+    "!build/tests"
+  ],
+  "exports": {
+    ".": "./build/index.js",
+    "./types": "./build/src/types/index.js",
+    "./services/main": "./build/services/main.js",
+    "./services/llm": "./build/services/main.js",
+    "./langchain_manager": "./build/src/langchain_manager.js",
+    "./provider": "./build/providers/langchain_provider.js"
+  },
+  "scripts": {
+    "clean": "del-cli build",
+    "copy:templates": "copyfiles \"stubs/**/*.stub\" build",
+    "typecheck": "tsc --noEmit && tsc --noEmit --noUnusedLocals false --project tsconfig.typecheck.json",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "quick:test": "tsx bin/test.ts",
+    "pretest": "npm run lint",
+    "test": "npm run quick:test",
+    "prebuild": "npm run lint && npm run clean",
+    "build": "tsc",
+    "postbuild": "npm run copy:templates",
+    "release": "release-it",
+    "release:patch": "release-it patch",
+    "release:minor": "release-it minor",
+    "release:major": "release-it major",
+    "release:beta": "release-it --preRelease=beta",
+    "release:alpha": "release-it --preRelease=alpha",
+    "release:next": "release-it --preRelease=next --npm.tag=next",
+    "release:dry": "release-it --dry-run",
+    "version": "npm run build",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "adonisjs",
+    "langchain",
+    "llm",
+    "ai",
+    "openai",
+    "anthropic",
+    "provider"
+  ],
+  "author": "Mixxtor",
+  "license": "MIT",
+  "devDependencies": {
+    "@adonisjs/assembler": "^8.0.0",
+    "@adonisjs/core": "^7.0.1",
+    "@adonisjs/eslint-config": "^3.0.0",
+    "@adonisjs/prettier-config": "^1.4.5",
+    "@adonisjs/tsconfig": "^2.0.0",
+    "@japa/assert": "^4.2.0",
+    "@japa/runner": "^5.3.0",
+    "@langchain/core": "^1.1.31",
+    "@release-it/conventional-changelog": "^10.0.5",
+    "@types/node": "^25.3.5",
+    "copyfiles": "^2.4.1",
+    "del-cli": "^7.0.0",
+    "eslint": "^10.0.3",
+    "prettier": "^3.8.1",
+    "release-it": "^19.2.4",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  },
+  "peerDependencies": {
+    "@adonisjs/core": "^6.19.0 || ^7.0.0",
+    "@langchain/core": "^1.1.31"
+  },
+  "homepage": "https://github.com/mixxtor/adonisjs-langchain#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mixxtor/adonisjs-langchain.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mixxtor/adonisjs-langchain/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "tag": "latest"
+  },
+  "release-it": {
+    "git": {
+      "requireCleanWorkingDir": true,
+      "requireUpstream": true,
+      "commitMessage": "chore(release): ${version}",
+      "tagAnnotation": "v${version}",
+      "push": true,
+      "tagName": "v${version}"
+    },
+    "github": {
+      "release": true,
+      "releaseName": "Release v${version}",
+      "releaseNotes": null,
+      "autoGenerate": true,
+      "draft": false,
+      "preRelease": false
+    },
+    "npm": {
+      "publish": true,
+      "skipChecks": true
+    },
+    "plugins": {
+      "@release-it/conventional-changelog": {
+        "preset": {
+          "name": "angular"
+        }
+      }
+    }
+  },
+  "prettier": "@adonisjs/prettier-config"
+}
