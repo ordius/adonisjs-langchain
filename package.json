@@ -1,6 +1,6 @@
 {
   "name": "@ordius/adonisjs-langchain",
-  "version": "0.0.1-beta.1",
+  "version": "0.1.0",
   "description": "AdonisJS provider for LangChain with multi-LLM support",
   "engines": {
     "node": ">=20.6.0"
