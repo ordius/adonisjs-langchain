@@ -1,6 +1,6 @@
 # @ordius/adonisjs-langchain
 
-An AdonisJS v6/v7 provider for [LangChain](https://js.langchain.com/) with multi-LLM driver support, type-safe provider selection, and full autocompletion.
+An AdonisJS v7 provider for [LangChain](https://js.langchain.com/) with multi-LLM driver support, type-safe provider selection, and full autocompletion.
 
 ## Features
 
