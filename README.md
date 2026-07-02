@@ -108,7 +108,7 @@ for await (const chunk of await llm.stream('Tell me a joke')) {
 ```typescript
 // Returns ChatOpenAI (not just BaseChatModel)
 const openai = llm.use('openai')
-console.log(openai.clientConfig)    // ← ChatOpenAI-specific property ✓
+console.log(openai.clientConfig) // ← ChatOpenAI-specific property ✓
 
 // Returns ChatAnthropic
 const claude = llm.use('anthropic')
@@ -127,7 +127,7 @@ const response = await creative.invoke('Write a poem')
 ```typescript
 const conf = llm.config('openai')
 // conf is typed as { apiKey: string; model: string; temperature: number; ... }
-console.log(conf.model)  // 'gpt-4o-mini'
+console.log(conf.model) // 'gpt-4o-mini'
 ```
 
 ### Convenience delegates (default driver)
@@ -144,13 +144,13 @@ await llm.batch(['Hello', 'World'])
 Driver names are fully type-checked after the `declare module` augmentation:
 
 ```typescript
-llm.use('openai')      // ✓
-llm.use('anthropic')   // ✓
-llm.use('typo')        // ✗ compile error
-llm.use('')            // ✗ compile error
+llm.use('openai') // ✓
+llm.use('anthropic') // ✓
+llm.use('typo') // ✗ compile error
+llm.use('') // ✗ compile error
 
 // Override types match the driver's config
-llm.use('openai', { temperature: 0.5 })      // ✓
+llm.use('openai', { temperature: 0.5 }) // ✓
 llm.use('openai', { anthropicApiKey: '...' }) // ✗ compile error — wrong driver
 ```
 
@@ -178,10 +178,10 @@ const langchainConfig = defineConfig({
 
 Wraps your config in an AdonisJS `ConfigProvider` resolved at boot time.
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `default` | `string` | Key of the default driver |
-| `drivers` | `Record<string, ChatDriverConfig>` | Named driver map |
+| Field     | Type                               | Description               |
+| --------- | ---------------------------------- | ------------------------- |
+| `default` | `string`                           | Key of the default driver |
+| `drivers` | `Record<string, ChatDriverConfig>` | Named driver map          |
 
 ### `drivers.chat(Client, config)`
 
@@ -211,4 +211,3 @@ Delegates to the default driver's client.
 ## License
 
 MIT
-

@@ -57,8 +57,7 @@ export class LangchainManager<KnownDrivers> {
 
   #createClient(name: string, overrideConfig?: any): BaseChatModel {
     const driver = this.#config.drivers[name as keyof KnownDrivers] as
-      | ChatDriverConfig<any, any>
-      | undefined
+      ChatDriverConfig<any, any> | undefined
     if (!driver) {
       throw new Error(`LLM driver '${name}' is not configured`)
     }
